@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07080b">
+  <meta name="description" content="Ayank Raj — a personal archive of questions, machines, music, and the things still becoming.">
+  <meta property="og:title" content="AYANK RAJ — Personal Archive">
+  <meta property="og:description" content="Somewhere between distortion and discovery.">
+  <title>AYANK RAJ — Personal Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+/* AYANK / PERSONAL ARCHIVE — responsive visual system */
+
+/* Animated creator signature */
+
+/* Large rotating signature orbit around the black hole */
+.orb-signature {
+  position: absolute;
+  z-index: 5;
+  width: clamp(275px, 47vw, 490px);
+  aspect-ratio: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: signatureOrbit 24s linear infinite;
+}
+.orb-signature svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.orb-signature .signature-track {
+  fill: none;
+  stroke: rgba(105,243,244,.18);
+  stroke-width: .7;
+  stroke-dasharray: 2 7;
+}
+.orb-signature text {
+  fill: rgba(244,246,250,.9);
+  font: 600 10px var(--mono);
+  letter-spacing: 3.1px;
+}
+.orb-signature .signature-accent {
+  fill: var(--red);
+}
+@keyframes signatureOrbit {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+@media (max-width: 680px) {
+  .orb-signature { width: clamp(260px, 83vw, 370px); }
+  .orb-signature text { font-size: 10px; letter-spacing: 2.4px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .orb-signature { animation: none !important; }
+}
+
+.creator-credit {
+  position: relative;
+  z-index: 40;
+  min-height: 27px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: #08090d;
+  border-bottom: 1px solid rgba(105,243,244,.16);
+  color: #9298a6;
+  font: 9px var(--mono);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+.creator-credit .credit-name {
+  color: #f2f3f5;
+  display: inline-block;
+  letter-spacing: .16em;
+  animation: creditGlow 3.2s ease-in-out infinite, creditFloat 4s ease-in-out infinite;
+  text-shadow: 0 0 10px rgba(105,243,244,.2);
+}
+.creator-credit .credit-plus {
+  color: var(--red);
+  display: inline-block;
+  animation: creditSpin 5s linear infinite;
+}
+.creator-credit::before,
+.creator-credit::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 1px;
+  width: 28%;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  animation: creditSweep 4.5s ease-in-out infinite;
+}
+.creator-credit::after {
+  animation-delay: -2.25s;
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
+}
+@keyframes creditGlow {
+  0%,100% { opacity: .78; text-shadow: 0 0 5px rgba(105,243,244,.12); }
+  50% { opacity: 1; text-shadow: 0 0 13px rgba(105,243,244,.48), 0 0 24px rgba(255,57,72,.16); }
+}
+@keyframes creditFloat {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-1.5px); }
+}
+@keyframes creditSpin {
+  0%,85%,100% { transform: rotate(0deg); }
+  92% { transform: rotate(180deg); }
+}
+@keyframes creditSweep {
+  0% { transform: translateX(-180%); opacity: 0; }
+  20%,70% { opacity: .8; }
+  100% { transform: translateX(180%); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .creator-credit *, .creator-credit::before, .creator-credit::after { animation: none !important; }
+}
+
+:root{--bg:#07080b;--panel:#0d1016;--panel2:#11141b;--line:rgba(196,211,230,.14);--text:#f1f1f3;--muted:#9298a6;--red:#ff3948;--cyan:#69f3f4;--amber:#ffb58c;--mono:"DM Mono",monospace;--sans:"Space Grotesk",system-ui,sans-serif;--pad:clamp(18px,4.5vw,68px)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:78px}body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);overflow-x:hidden;min-width:320px}body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 50% 15%,#14151e 0%,#090a0e 44%,#050609 100%)}button,a{-webkit-tap-highlight-color:transparent}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}.mono{font-family:var(--mono);letter-spacing:.13em;text-transform:uppercase;font-size:10px}.noise{position:fixed;inset:-50%;z-index:20;pointer-events:none;opacity:.055;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.65'/%3E%3C/svg%3E");animation:noiseShift .22s steps(2) infinite}#universe{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}.scanline{position:fixed;inset:0;pointer-events:none;z-index:19;opacity:.09;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.08) 4px,transparent 5px)}.cursor-aura{position:fixed;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle,rgba(75,220,237,.07),transparent 68%);pointer-events:none;z-index:0;transform:translate(-50%,-50%);opacity:0;transition:opacity .3s}@media(hover:hover){.cursor-aura{opacity:1}}.topbar{height:68px;position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);background:rgba(7,8,11,.78);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.wordmark{font:500 13px var(--mono);letter-spacing:.12em;display:flex;align-items:center;gap:9px}.wordmark-dot{width:6px;height:6px;background:var(--red);display:inline-block;box-shadow:0 0 14px var(--red)}.nav{display:flex;gap:clamp(12px,3vw,38px)}.nav a,.sound-toggle{font:10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#a2a7b4;transition:color .25s}.nav a:hover,.nav a:focus-visible{color:var(--cyan)}.sound-toggle{border:0;background:none;display:flex;gap:8px;align-items:center;cursor:pointer;padding:10px 0}.sound-icon{color:var(--cyan);font-size:17px}.sound-toggle[aria-pressed=true] .sound-icon{animation:pulse .8s ease-in-out infinite alternate}.section-pad{padding-left:var(--pad);padding-right:var(--pad);position:relative}.hero{min-height:calc(100svh - 68px);display:flex;flex-direction:column;justify-content:center;padding-top:38px;padding-bottom:75px;overflow:hidden}.hero-meta{display:flex;justify-content:space-between;color:#777e8d;position:relative;z-index:2}.live{display:inline-flex;align-items:center;gap:8px;color:#a9b0bd}.live i,.live-dot{display:inline-block;width:5px;height:5px;background:var(--red);border-radius:50%;box-shadow:0 0 10px var(--red);animation:pulse 1.4s infinite alternate}.orb-stage{height:clamp(250px,43vw,490px);max-height:48vh;min-height:250px;position:relative;display:grid;place-items:center;perspective:900px;touch-action:pan-y;cursor:grab;isolation:isolate}.orb-stage:active{cursor:grabbing}.orb-grid{position:absolute;width:85%;height:80%;background:linear-gradient(rgba(100,130,160,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(100,130,160,.07) 1px,transparent 1px);background-size:28px 28px;mask-image:radial-gradient(ellipse,black 0%,transparent 72%);transform:rotateX(62deg) rotateZ(-12deg);opacity:.5}.planet{width:clamp(150px,28vw,280px);aspect-ratio:1;border-radius:50%;position:relative;overflow:hidden;background:conic-gradient(from 220deg,#70f1ed,#152c37 22%,#0b0c12 35%,#b7a0ff 51%,#33244f 63%,#ff4753 76%,#ffb07f 88%,#70f1ed);box-shadow:inset -30px -22px 50px #030407,0 0 45px rgba(98,91,198,.14);animation:planetFloat 7s ease-in-out infinite}.planet:before{content:"";position:absolute;inset:25%;border-radius:50%;background:#050609;box-shadow:0 0 25px #030407}.planet-shade{position:absolute;inset:0;background:linear-gradient(115deg,transparent 20%,rgba(0,0,0,.8) 68%,rgba(0,0,0,.1));border-radius:50%}.planet-rim{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(255,255,255,.25);filter:blur(1px)}.orb-halo{position:absolute;width:clamp(210px,39vw,400px);aspect-ratio:1;border:1px solid rgba(111,235,245,.23);border-radius:50%;transform:rotateX(67deg) rotateZ(-23deg)}.halo-one{animation:haloSpin 18s linear infinite}.halo-two{width:clamp(245px,45vw,450px);border-color:rgba(255,62,78,.22);transform:rotateX(66deg) rotateZ(32deg);animation:haloSpin 27s linear infinite reverse}.orbit{position:absolute;border:1px solid rgba(143,130,214,.35);width:clamp(210px,40vw,410px);aspect-ratio:1;border-radius:50%}.orbit-a{transform:rotateX(69deg) rotateZ(22deg)}.orbit-b{transform:rotateX(68deg) rotateZ(-38deg);border-color:rgba(103,240,245,.25)}.orbit-c{transform:rotateX(76deg) rotateY(24deg) rotateZ(67deg);border-color:rgba(255,181,140,.2)}.orbit-line{position:absolute;width:76%;height:2px;border-radius:100%;filter:drop-shadow(0 0 5px currentColor);transform:rotate(-18deg);pointer-events:none}.line-cyan{background:linear-gradient(90deg,transparent,var(--cyan),#d5ffff,transparent);top:55%;color:var(--cyan)}.line-amber{background:linear-gradient(90deg,transparent,var(--amber),#fff1d7,transparent);top:47%;color:var(--amber);transform:rotate(-19deg) translateY(-16px)}.orb-label{position:absolute;color:#7e8797;font-size:9px}.label-top{top:18%;right:4%}.label-bottom{bottom:15%;left:5%}.orb-cross{position:absolute;left:8%;top:27%;font:34px var(--mono);font-weight:200;color:var(--red);line-height:1}.hero-copy{max-width:820px;position:relative;z-index:2;margin-top:-4px}.eyebrow{font:10px var(--mono);letter-spacing:.24em;color:var(--red);margin:0 0 20px}.red-rule{display:inline-block;width:30px;height:1px;background:var(--red);vertical-align:middle;margin-right:12px}.hero h1{font-size:clamp(3.35rem,10.5vw,8.7rem);line-height:.79;letter-spacing:-.095em;font-weight:700;margin:0 0 29px;max-width:1000px}.hero h1 span{display:block}.hero h1 em{font-style:normal;color:transparent;-webkit-text-stroke:1px rgba(240,242,247,.8);letter-spacing:-.09em}.accent{color:var(--red)}.hero-intro{font-size:clamp(15px,2vw,19px);line-height:1.85;color:#a3a8b4;max-width:570px;margin:0 0 30px}.hero-actions{display:flex;flex-wrap:wrap;gap:12px}.button{min-height:48px;padding:0 19px;display:inline-flex;align-items:center;justify-content:center;gap:14px;font:11px var(--mono);letter-spacing:.13em;border:1px solid var(--line);cursor:pointer;transition:transform .25s,border-color .25s,background .25s;position:relative;overflow:hidden}.button:hover{transform:translateY(-3px);border-color:var(--cyan)}.button-hot{background:var(--red);border-color:var(--red);color:#fff}.button-hot:hover{background:#ff5360;border-color:#ff5360;box-shadow:0 8px 32px rgba(255,57,72,.2)}.button-quiet{background:rgba(255,255,255,.015);color:#d3d5db}.button span{font-size:15px}.status-line{font-size:9px;color:#626a79;margin-top:26px;letter-spacing:.12em}.status-line span{color:var(--cyan)}.scroll-cue{position:absolute;right:var(--pad);bottom:25px;display:flex;align-items:center;gap:10px;color:#717988;font-size:9px;writing-mode:vertical-rl}.scroll-line{width:1px;height:32px;background:linear-gradient(var(--red),transparent);display:inline-block}.archive,.sound-section,.lab,.signal-section{padding-top:110px;padding-bottom:100px;border-top:1px solid rgba(196,211,230,.1)}.section-heading{margin-bottom:38px;max-width:700px}.section-heading .eyebrow{margin-bottom:13px}.section-heading h2{font-size:clamp(2.6rem,7vw,5.2rem);letter-spacing:-.08em;line-height:.95;margin:0 0 18px}.section-note{font:12px/1.8 var(--mono);color:#858c9b;max-width:460px;margin:0}.archive-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.archive-card{border:1px solid var(--line);background:linear-gradient(145deg,rgba(17,20,27,.9),rgba(8,10,14,.92));min-width:0;transition:border-color .35s,transform .35s;overflow:hidden}.archive-card:hover{border-color:rgba(105,243,244,.48);transform:translateY(-4px)}.card-art{height:clamp(170px,25vw,300px);position:relative;overflow:hidden;background:#0a0d13;border-bottom:1px solid var(--line);isolation:isolate}.card-art:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,5,8,.65),transparent 45%),repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.025) 4px)}.art-index{position:absolute;bottom:14px;left:16px;color:#b6bdc9;z-index:2;font-size:9px}.card-body{padding:20px 21px 22px}.card-kicker,.mode-label{font:9px var(--mono);letter-spacing:.18em;color:var(--cyan);margin:0 0 13px}.card-body h3{font-size:clamp(1.25rem,3vw,1.7rem);letter-spacing:-.055em;margin:0 0 10px}.card-body>p:not(.card-kicker):not(.secret-text){font-size:13px;line-height:1.75;color:#9299a8;margin:0 0 17px}.text-link{padding:8px 0 3px;border:0;border-bottom:1px solid rgba(255,57,72,.55);background:none;color:var(--red);font:9px var(--mono);letter-spacing:.14em;cursor:pointer}.text-link span{padding-left:8px}.secret-text{margin:16px 0 0;padding:12px;border-left:1px solid var(--cyan);color:#c3e9eb;font:11px/1.8 var(--mono);letter-spacing:.02em;text-transform:none;animation:fadeIn .4s}.art-sound{background:radial-gradient(ellipse at 50% 90%,#7b332c 0%,transparent 48%),linear-gradient(135deg,#15171b,#302b2b 45%,#080a0e)}.crowd-light{position:absolute;inset:35% 0 0;background:repeating-linear-gradient(83deg,transparent 0 10px,rgba(255,231,207,.15) 11px 13px,transparent 14px 22px);filter:blur(4px);transform:perspective(200px) rotateX(-15deg);animation:crowd 6s ease-in-out infinite alternate}.sound-wave{position:absolute;left:-10%;right:-10%;top:48%;height:70px;border-top:2px solid rgba(255,65,76,.9);border-radius:50%;transform:rotate(-9deg);box-shadow:0 -8px 0 -6px var(--cyan),0 -16px 0 -14px var(--amber);filter:drop-shadow(0 0 8px var(--red))}.art-cosmos{background:radial-gradient(ellipse at 58% 54%,rgba(74,142,177,.55),transparent 35%),radial-gradient(ellipse at 35% 36%,rgba(132,88,183,.5),transparent 40%),#070b12}.nebula{position:absolute;inset:-20%;background:conic-gradient(from 30deg at 55% 55%,transparent,#365c7b55,#8c5cb755,transparent,#3a858b55,transparent);filter:blur(16px);animation:haloSpin 50s linear infinite}.planet-small{position:absolute;width:43%;aspect-ratio:1;border-radius:50%;left:29%;top:21%;background:radial-gradient(circle at 30% 30%,#344e65,#111a27 62%,#030407 70%);box-shadow:0 0 30px #517e9950}.art-physics{background:#07090c;background-image:linear-gradient(rgba(105,243,244,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(105,243,244,.05) 1px,transparent 1px);background-size:25px 25px}.equation{position:absolute;font:clamp(12px,2vw,20px) var(--mono);color:#d5dce4;opacity:.65}.e1{top:23%;left:10%;transform:rotate(-8deg)}.e2{right:8%;top:63%;font-size:clamp(8px,1.3vw,13px);color:var(--cyan)}.wire-cube{position:absolute;left:43%;top:25%;width:70px;aspect-ratio:1;border:1px solid var(--cyan);transform:rotate(30deg) skew(-9deg);box-shadow:12px 12px 0 -1px #0a0c10,12px 12px 0 0 var(--red);animation:float 5s ease-in-out infinite}.graph{position:absolute;bottom:18%;left:12%;width:40%;height:25%;border-left:1px solid #9ba4b5;border-bottom:1px solid #9ba4b5;background:linear-gradient(135deg,transparent 49%,var(--red) 50%,transparent 51%);opacity:.6}.art-circuit{background:radial-gradient(ellipse at center,#252d32,#0a0c10 70%)}.circuit-board{position:absolute;inset:-20%;background:repeating-linear-gradient(30deg,transparent 0 22px,rgba(95,215,211,.2) 23px 24px,transparent 25px 47px),repeating-linear-gradient(120deg,transparent 0 31px,rgba(255,57,72,.16) 32px 33px,transparent 34px 61px);transform:perspective(300px) rotateX(50deg) rotateZ(-12deg);animation:circuitMove 12s linear infinite}.chip{position:absolute;left:41%;top:37%;width:72px;height:60px;border:1px solid #65727b;background:linear-gradient(145deg,#202b32,#080b0e);display:grid;place-items:center;color:var(--cyan);font:12px var(--mono);box-shadow:0 0 28px #6cf5ef17}.art-horizon{background:radial-gradient(ellipse at 50% 53%,#18101a,#07080b 65%)}.horizon-ring{position:absolute;width:57%;aspect-ratio:1;border-radius:50%;left:21%;top:15%;background:conic-gradient(from 20deg,#5af1e9,#1b2838,#ff3948,#ffbd8e,#5af1e9);filter:blur(1px);box-shadow:0 0 40px #ff394822;transform:rotateX(60deg) rotateZ(-22deg);animation:haloSpin 17s linear infinite}.horizon-core{position:absolute;left:38%;top:35%;width:24%;aspect-ratio:1;border-radius:50%;background:#020306;box-shadow:0 0 24px #000}.art-stars{background:radial-gradient(ellipse at 50% 70%,#141c2a,#050609 68%)}.art-stars:before{content:"";position:absolute;inset:0;background-image:radial-gradient(1px 1px at 13% 25%,white 90%,transparent),radial-gradient(1px 1px at 62% 20%,white 90%,transparent),radial-gradient(2px 2px at 80% 60%,#bdefff 90%,transparent),radial-gradient(1px 1px at 31% 76%,white 90%,transparent),radial-gradient(1px 1px at 44% 47%,white 90%,transparent),radial-gradient(1px 1px at 92% 18%,white 90%,transparent);background-size:170px 130px}.galaxy-band{position:absolute;left:-15%;top:33%;width:130%;height:40%;transform:rotate(-19deg);background:linear-gradient(180deg,transparent,rgba(164,183,219,.13),rgba(232,230,246,.24),rgba(90,122,171,.08),transparent);filter:blur(7px)}.sound-section{overflow:hidden}.sound-modes{display:grid;grid-template-columns:1fr 1fr;gap:18px}.mode-card{text-align:left;min-height:260px;position:relative;display:flex;flex-direction:column;align-items:flex-start;padding:25px;background:rgba(14,16,22,.82);border:1px solid var(--line);overflow:hidden;cursor:pointer;transition:border-color .3s,transform .3s}.mode-card:hover,.mode-card.active{border-color:rgba(255,57,72,.6);transform:translateY(-3px)}.mode-card:before{content:"";position:absolute;right:-20%;top:-45%;width:80%;aspect-ratio:1;border:1px solid rgba(255,57,72,.17);border-radius:50%;box-shadow:0 0 0 30px rgba(255,57,72,.025),0 0 0 60px rgba(255,57,72,.02)}.mode-title{font-size:clamp(1.35rem,3vw,2rem);font-weight:600;letter-spacing:-.06em;position:relative;z-index:1}.mode-copy{font-size:13px;line-height:1.8;color:#979eac;max-width:370px;margin-top:12px;position:relative;z-index:1}.mode-action{font-size:9px;color:var(--red);margin-top:auto;padding-top:28px;position:relative;z-index:1}.visual-noise{position:absolute;bottom:22px;right:20px;width:90px;height:45px;opacity:.5;background:repeating-linear-gradient(90deg,transparent 0 4px,var(--red) 5px 6px,transparent 7px 10px);mask-image:linear-gradient(0deg,transparent,#000 20%,#000 80%,transparent);transform:skew(-22deg);animation:equalize .8s ease-in-out infinite alternate}.visual-orbit{position:absolute;right:16px;bottom:16px;width:90px;height:48px;border:1px solid var(--cyan);border-radius:50%;transform:rotate(-28deg);opacity:.5}.visual-orbit:after{content:"";position:absolute;inset:10px 20px;border:1px solid var(--cyan);border-radius:50%;transform:rotate(60deg)}.mode-response{min-height:28px;color:var(--cyan);font-size:9px;margin-top:20px}.lab-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:18px}.lab-note,.terminal,.classified{border:1px solid var(--line);background:rgba(13,16,22,.84);padding:clamp(20px,3vw,32px)}.lab-note h3{font-size:clamp(1.6rem,3vw,2.4rem);line-height:1.1;letter-spacing:-.06em;margin:20px 0}.lab-note>p:not(.card-kicker){font-size:13px;line-height:1.9;color:#9aa1af}.lab-prompt{color:#d4d8df!important}.terminal{padding:0;display:flex;flex-direction:column;min-height:290px}.terminal-head{height:42px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:6px;padding:0 16px}.terminal-head i{width:6px;height:6px;border-radius:50%;background:var(--red)}.terminal-head i:nth-child(2){background:#ffc46c}.terminal-head i:nth-child(3){background:#78e3b5}.terminal-head span{margin-left:auto;color:#78808e;font-size:8px}.terminal-screen{padding:20px 20px 10px;font:11px/1.9 var(--mono);color:#aeb5c1;flex:1}.terminal-screen p{margin:0 0 5px}.cyan{color:var(--cyan)}.red{color:var(--red)}.muted{color:#727b8a}.terminal-output{margin-top:15px!important;color:#e2e5eb}.terminal-controls{display:flex;flex-wrap:wrap;gap:7px;padding:12px 18px 18px}.terminal-controls button{border:1px solid var(--line);background:#0b0e13;padding:9px 11px;font:9px var(--mono);color:#c2c8d3;cursor:pointer;transition:border-color .2s,color .2s}.terminal-controls button:hover{border-color:var(--cyan);color:var(--cyan)}.signal-section{padding-bottom:110px}.classified{max-width:760px}.classified>p:not(.card-kicker){color:#9da4b1;font-size:13px;line-height:1.8}.classified .button{margin-top:12px;min-height:40px}.classified-message{border-top:1px solid var(--line);margin-top:22px!important;padding-top:20px;color:var(--cyan)!important;font:11px/1.9 var(--mono)!important;letter-spacing:.07em;animation:fadeIn .5s}.end-section{min-height:68vh;overflow:hidden;padding-top:100px;padding-bottom:25px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;border-top:1px solid var(--line)}.end-orbit{position:absolute;width:clamp(280px,48vw,620px);aspect-ratio:1;border-radius:50%;border:1px solid rgba(105,243,244,.12);right:-8%;top:5%;transform:rotateX(67deg) rotateZ(-24deg);box-shadow:0 0 0 38px rgba(105,243,244,.015),0 0 0 80px rgba(255,57,72,.015);pointer-events:none}.end-section h2{font-size:clamp(3.6rem,10vw,8.5rem);line-height:.78;letter-spacing:-.1em;margin:12px 0 24px;position:relative}.end-copy{max-width:430px;color:#939aa8;font-size:14px;line-height:1.8;margin:0 0 28px;position:relative}.footer-line{border-top:1px solid var(--line);width:100%;margin-top:95px;padding-top:17px;display:flex;justify-content:space-between;gap:15px;color:#626b7b;font-size:8px}.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);z-index:50;background:#11161c;border:1px solid rgba(105,243,244,.3);color:var(--cyan);padding:12px 16px;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;font-size:9px}.toast.show{opacity:1;transform:translate(-50%,0)}.reveal{opacity:1;transform:none}.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}.js .reveal.is-visible{opacity:1;transform:translateY(0)}.glitching h1,.glitching h2{animation:glitch .5s steps(2) 2}.glitching .orb-stage{animation:stageGlitch .45s steps(2) 2}
+@keyframes pulse{to{opacity:.35;box-shadow:0 0 2px var(--red)}}@keyframes planetFloat{0%,100%{transform:translateY(0) rotate(-7deg)}50%{transform:translateY(-10px) rotate(5deg)}}@keyframes haloSpin{to{rotate:360deg}}@keyframes noiseShift{0%{transform:translate(0,0)}25%{transform:translate(2%,-1%)}50%{transform:translate(-1%,2%)}75%{transform:translate(1%,1%)}100%{transform:translate(-2%,-1%)}}@keyframes crowd{to{transform:perspective(200px) rotateX(-15deg) translateY(-7px);opacity:.6}}@keyframes float{50%{translate:0 -8px;rotate:8deg}}@keyframes circuitMove{to{background-position:120px 80px,80px 120px}}@keyframes equalize{to{transform:skew(-22deg) scaleY(.45);opacity:.25}}@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}@keyframes glitch{0%{text-shadow:3px 0 var(--cyan),-3px 0 var(--red);transform:translateX(1px)}50%{text-shadow:-4px 0 var(--cyan),4px 0 var(--red);transform:translateX(-2px)}100%{text-shadow:0 0 transparent;transform:translateX(0)}}@keyframes stageGlitch{50%{filter:hue-rotate(70deg) contrast(1.5);transform:translateX(3px)}}
+@media(min-width:1100px){.hero{padding-top:45px}.hero-copy{margin-left:2vw}.orb-stage{width:min(80%,1000px);margin:0 auto}.archive-grid{gap:22px}.card-art{height:290px}}
+@media(max-width:680px){.topbar{height:58px}.nav{gap:13px}.nav a{font-size:8px;letter-spacing:.06em}.sound-label{display:none}.sound-toggle{padding:8px}.hero{min-height:auto;padding-top:25px;padding-bottom:75px}.hero-meta{font-size:8px}.orb-stage{height:280px;min-height:250px;max-height:none;margin:8px -8px 3px}.orb-label{font-size:7px}.label-top{right:2%;top:17%}.label-bottom{left:3%;bottom:13%}.orb-cross{left:4%;top:25%;font-size:26px}.hero h1{font-size:clamp(3.15rem,14vw,5.4rem);margin-bottom:23px}.hero-intro{font-size:15px;line-height:1.75}.hero-actions{display:grid;grid-template-columns:1fr 1fr}.button{padding:0 11px;font-size:9px;letter-spacing:.07em;gap:7px;min-height:46px}.status-line{font-size:8px;line-height:1.8}.scroll-cue{display:none}.archive,.sound-section,.lab,.signal-section{padding-top:75px;padding-bottom:72px}.section-heading{margin-bottom:28px}.section-heading h2{font-size:clamp(2.5rem,12vw,4rem)}.section-note{font-size:10px}.archive-grid{grid-template-columns:1fr;gap:15px}.card-art{height:clamp(210px,62vw,330px)}.card-body{padding:18px}.card-body h3{font-size:1.55rem}.sound-modes{grid-template-columns:1fr;gap:12px}.mode-card{min-height:240px;padding:22px}.mode-title{font-size:1.55rem}.lab-layout{grid-template-columns:1fr}.terminal{min-height:275px}.end-section{min-height:60vh;padding-top:80px}.end-orbit{right:-50%;top:8%;width:100vw}.footer-line{margin-top:70px;font-size:7px;letter-spacing:.06em}.footer-line span:last-child{text-align:right}.noise{opacity:.04}}
+@media(max-width:370px){.nav{gap:8px}.nav a{font-size:7px}.wordmark{font-size:11px}.hero h1{font-size:3rem}.hero-actions{grid-template-columns:1fr}.orb-stage{height:245px}.hero-meta .live{font-size:7px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.js .reveal{opacity:1;transform:none}#universe{display:none}.cursor-aura{display:none}}
+
+  </style>
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <canvas id="universe" aria-hidden="true"></canvas>
+  <div class="cursor-aura" aria-hidden="true"></div>
+  <div class="scanline" aria-hidden="true"></div>
+
+  <div class="creator-credit" aria-label="Designed by Ayank Raj">
+    <span>DESIGNED BY</span><span class="credit-plus" aria-hidden="true">✳</span><span class="credit-name">AYANK RAJ</span>
+  </div>
+
+  <header class="topbar">
+    <a class="wordmark" href="#home" aria-label="Ayank Raj home">A/R<span class="wordmark-dot"></span></a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#archive">Archive</a><a href="#signal">Signal</a><a href="#lab">Lab</a><a href="#end">Exit</a>
+    </nav>
+    <button class="sound-toggle" id="soundToggle" aria-pressed="false" title="Toggle ambient sound">
+      <span class="sound-icon">◖</span><span class="sound-label">SOUND OFF</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero section-pad" id="home">
+      <div class="hero-meta mono"><span>PERSONAL ARCHIVE / 001</span><span class="live"><i></i> SIGNAL ACTIVE</span></div>
+      <div class="orb-stage" id="orbStage" aria-label="Interactive abstract orbital object">
+        <div class="orb-signature" aria-hidden="true">
+          <svg viewBox="0 0 500 500" role="presentation">
+            <defs><path id="signatureCircle" d="M 250,250 m -211,0 a 211,211 0 1,1 422,0 a 211,211 0 1,1 -422,0"/></defs>
+            <circle class="signature-track" cx="250" cy="250" r="211"/>
+            <text><textPath href="#signatureCircle" startOffset="0%">✳ DESIGNED BY AYANK RAJ · DESIGNED BY AYANK RAJ · </textPath></text>
+          </svg>
+        </div>
+        <div class="orb-grid"></div><div class="orb-halo halo-one"></div><div class="orb-halo halo-two"></div>
+        <div class="planet"><div class="planet-shade"></div><div class="planet-rim"></div></div>
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div>
+        <div class="orbit-line line-cyan"></div><div class="orbit-line line-amber"></div>
+        <span class="orb-label label-top mono">EVENT HORIZON / 01</span>
+        <span class="orb-label label-bottom mono">MASS: UNKNOWN</span>
+        <span class="orb-cross">+</span>
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow mono"><span class="red-rule"></span> NOT A FINISHED PRODUCT</p>
+        <h1><span>NOT HERE</span><span>TO <em>FIT</em></span><span class="accent">THE FRAME.</span></h1>
+        <p class="hero-intro">Somewhere between distortion and discovery. A little metal, a lot of physics, machines that move, and questions too big to fit in a bio.</p>
+        <div class="hero-actions">
+          <a class="button button-hot magnetic" href="#archive">ENTER THE ARCHIVE <span>↘</span></a>
+          <button class="button button-quiet magnetic" id="glitchButton">INITIATE GLITCH <span>↗</span></button>
+        </div>
+        <div class="status-line mono">CURRENT STATUS: <span id="statusText">BECOMING</span> // NO FINAL VERSION FOUND</div>
+      </div>
+      <a class="scroll-cue mono" href="#archive"><span class="scroll-line"></span> SCROLL TO DESCEND</a>
+    </section>
+
+    <section class="archive section-pad" id="archive">
+      <div class="section-heading reveal">
+        <p class="eyebrow mono">01 / THE THINGS THAT PULL ME IN</p>
+        <h2>THE ARCHIVE<span class="accent">.</span></h2>
+        <p class="section-note">Tap a file. Look closer. Nothing here is the whole story.</p>
+      </div>
+      <div class="archive-grid">
+        <article class="archive-card reveal" data-secret="Loud enough to feel something. Quiet enough to hear yourself think.">
+          <div class="card-art art-sound"><div class="crowd-light"></div><div class="sound-wave"></div><span class="art-index mono">FILE 001 / VOLTAGE</span></div>
+          <div class="card-body"><p class="card-kicker mono">01 / SOUND & FURY</p><h3>Heavy music</h3><p>Noise with intention. Riffs that sound like a storm arriving.</p><button class="text-link reveal-file">OPEN FILE <span>↗</span></button><p class="secret-text" hidden></p></div>
+        </article>
+        <article class="archive-card reveal" data-secret="The universe is not obligated to make sense to us. That's the invitation.">
+          <div class="card-art art-cosmos"><div class="nebula"></div><div class="planet-small"></div><span class="art-index mono">FILE 002 / DEEP FIELD</span></div>
+          <div class="card-body"><p class="card-kicker mono">02 / COSMIC SCALE</p><h3>Astrophysics</h3><p>Stars, gravity, black holes—and the audacity of asking why.</p><button class="text-link reveal-file">OPEN FILE <span>↗</span></button><p class="secret-text" hidden></p></div>
+        </article>
+        <article class="archive-card reveal" data-secret="Intuition is a starting point, not a law. Test the idea.">
+          <div class="card-art art-physics"><div class="equation e1">F = ma</div><div class="equation e2">∇ × E = −∂B/∂t</div><div class="wire-cube"></div><div class="graph"></div><span class="art-index mono">FILE 003 / REALITY.EXE</span></div>
+          <div class="card-body"><p class="card-kicker mono">03 / RULES OF REALITY</p><h3>Physics</h3><p>The universe doesn't care what seems intuitive. That's the fun.</p><button class="text-link reveal-file">OPEN FILE <span>↗</span></button><p class="secret-text" hidden></p></div>
+        </article>
+        <article class="archive-card reveal" data-secret="An idea becomes real when the parts finally agree to move together.">
+          <div class="card-art art-circuit"><div class="circuit-board"></div><div class="chip">A/R</div><span class="art-index mono">FILE 004 / BUILT, NOT IMAGINED</span></div>
+          <div class="card-body"><p class="card-kicker mono">04 / BUILT, NOT IMAGINED</p><h3>Robotics & mechatronics</h3><p>Code meets circuits. Mechanical ideas become things that move.</p><button class="text-link reveal-file">OPEN FILE <span>↗</span></button><p class="secret-text" hidden></p></div>
+        </article>
+        <article class="archive-card reveal" data-secret="A black hole is not a cosmic vacuum cleaner. Reality is stranger and more precise than the myth.">
+          <div class="card-art art-horizon"><div class="horizon-ring"></div><div class="horizon-core"></div><span class="art-index mono">FILE 005 / NO RETURN</span></div>
+          <div class="card-body"><p class="card-kicker mono">05 / NO RETURN</p><h3>Black holes</h3><p>Places where everyday intuition runs out of road.</p><button class="text-link reveal-file">OPEN FILE <span>↗</span></button><p class="secret-text" hidden></p></div>
+        </article>
+        <article class="archive-card reveal" data-secret="Everything, everywhere, expanding—and still full of unknowns.">
+          <div class="card-art art-stars"><div class="galaxy-band"></div><span class="art-index mono">FILE 006 / THE LARGE QUESTION</span></div>
+          <div class="card-body"><p class="card-kicker mono">06 / THE LARGE QUESTION</p><h3>Cosmology</h3><p>Everything, everywhere, expanding—and still full of unknowns.</p><button class="text-link reveal-file">OPEN FILE <span>↗</span></button><p class="secret-text" hidden></p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="sound-section section-pad" id="signal">
+      <div class="section-heading reveal">
+        <p class="eyebrow mono">02 / SOUNDTRACK TO THE VOID</p><h2>LOUD <span class="slash">/</span> DEEP</h2>
+        <p class="section-note">Two modes. Same brain. Volume is not the point. Feeling is.</p>
+      </div>
+      <div class="sound-modes">
+        <button class="mode-card mode-noise reveal" data-mode="noise">
+          <span class="mode-label mono">MODE A / DISTORTION</span><span class="mode-title">When the world gets loud.</span>
+          <span class="mode-copy">Heavy riffs, strange time signatures, drums like machinery, and music that doesn't ask permission.</span>
+          <span class="mode-action mono">OPEN THE NOISE ↗</span><span class="mode-visual visual-noise"></span>
+        </button>
+        <button class="mode-card mode-orbit reveal" data-mode="orbit">
+          <span class="mode-label mono">MODE B / ORBIT</span><span class="mode-title">When the world goes quiet.</span>
+          <span class="mode-copy">Deep space, slow builds, and the feeling that the universe is much bigger than the current problem.</span>
+          <span class="mode-action mono">ENTER THE VOID ↗</span><span class="mode-visual visual-orbit"></span>
+        </button>
+      </div>
+      <div class="mode-response mono" id="modeResponse" aria-live="polite">SELECT A FREQUENCY TO TUNE THE ROOM.</div>
+    </section>
+
+    <section class="lab section-pad" id="lab">
+      <div class="section-heading reveal">
+        <p class="eyebrow mono">03 / A LITTLE INTERACTIVE EXPERIMENT</p><h2>THE LAB<span class="accent">.</span></h2>
+        <p class="section-note">A terminal with no actual system access. Just a few doors to open.</p>
+      </div>
+      <div class="lab-layout">
+        <div class="lab-note reveal"><p class="card-kicker mono">FIELD NOTES / 0X01</p><h3>Curiosity is a useful malfunction.</h3><p>Ideas are cheap until you test them. Physics gives you the rules. Engineering gives you tools. Building gives you feedback.</p><p class="lab-prompt">Choose a command. See what comes back.</p></div>
+        <div class="terminal reveal">
+          <div class="terminal-head"><i></i><i></i><i></i><span class="mono">A/R TERMINAL — LOCAL ONLY</span></div>
+          <div class="terminal-screen" id="terminalScreen" aria-live="polite"><p>ayank@archive:~$ <span class="cyan">help</span></p><p class="muted">AVAILABLE COMMANDS: <span class="red">why</span> / <span class="red">build</span> / <span class="red">void</span></p><p class="terminal-output">Awaiting input...</p></div>
+          <div class="terminal-controls"><button data-command="why">run why</button><button data-command="build">run build</button><button data-command="void">run void</button><button data-command="clear">clear</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="signal-section section-pad">
+      <div class="section-heading reveal">
+        <p class="eyebrow mono">04 / HIDDEN IN PLAIN SIGHT</p><h2>ONE LAST SIGNAL<span class="accent">.</span></h2>
+        <p class="section-note">Not every door needs a key. Some need a little patience.</p>
+      </div>
+      <div class="classified reveal">
+        <p class="card-kicker mono">MESSAGE / CLASSIFIED BY NOBODY</p>
+        <p>There's a line here for anyone who wants to look twice.</p>
+        <button class="button button-quiet" id="revealMessage">REVEAL MESSAGE +</button>
+        <p class="classified-message" id="classifiedMessage" hidden>YOU ARE ALLOWED TO BE A WORK IN PROGRESS. JUST DON'T WORSHIP THE BLUEPRINT. BUILD SOMETHING.</p>
+      </div>
+    </section>
+
+    <section class="end-section section-pad" id="end">
+      <div class="end-orbit" aria-hidden="true"></div>
+      <p class="eyebrow mono">END OF CURRENT TRANSMISSION</p>
+      <h2>STILL IN<br><span class="accent">PROGRESS.</span></h2>
+      <p class="end-copy">This archive is a snapshot, not a verdict. More files will appear when there's something worth adding.</p>
+      <a class="button button-hot magnetic" href="#home">RETURN TO ORIGIN ↑</a>
+      <div class="footer-line mono"><span>AYANK RAJ / PERSONAL ARCHIVE</span><span>NO FINAL VERSION FOUND <i class="live-dot"></i></span></div>
+    </section>
+  </main>
+  <div class="toast mono" id="toast" role="status" aria-live="polite"></div>
+  <script>
+(() => {
+  "use strict";
+  const $ = (s, root = document) => root.querySelector(s);
+  const $$ = (s, root = document) => [...root.querySelectorAll(s)];
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
+  const toast = $("#toast");
+  let toastTimer;
+
+  function notify(message) {
+    toast.textContent = message;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove("show"), 2300);
+  }
+
+  // Canvas starfield: density scales with screen size and respects reduced-motion.
+  const canvas = $("#universe");
+  const ctx = canvas.getContext("2d", { alpha: true });
+  let width = 0, height = 0, dpr = 1, stars = [], pointer = { x: -1000, y: -1000 }, frame = 0;
+  function resizeCanvas() {
+    dpr = Math.min(window.devicePixelRatio || 1, 1.7);
+    width = window.innerWidth; height = window.innerHeight;
+    canvas.width = Math.round(width * dpr); canvas.height = Math.round(height * dpr);
+    canvas.style.width = width + "px"; canvas.style.height = height + "px";
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const count = Math.min(145, Math.max(45, Math.floor(width * height / 8500)));
+    stars = Array.from({ length: count }, () => ({
+      x: Math.random() * width, y: Math.random() * height,
+      r: Math.random() * 1.25 + .25, a: Math.random() * .65 + .15,
+      speed: Math.random() * .16 + .025, phase: Math.random() * Math.PI * 2,
+      tint: Math.random() > .84 ? "105,243,244" : "210,220,240"
+    }));
+  }
+  function drawUniverse() {
+    ctx.clearRect(0, 0, width, height);
+    for (const s of stars) {
+      const twinkle = reducedMotion ? 1 : .68 + Math.sin(frame * .012 + s.phase) * .24;
+      let x = s.x, y = s.y;
+      if (!reducedMotion) {
+        y -= s.speed * .38;
+        if (y < -3) { s.y = height + 3; y = s.y; s.x = Math.random() * width; }
+        const dx = pointer.x - x, dy = pointer.y - y;
+        const distance = Math.hypot(dx, dy);
+        if (distance < 150 && distance > 0 && !coarsePointer) {
+          x -= dx / distance * (150 - distance) * .035;
+          y -= dy / distance * (150 - distance) * .035;
+        }
+      }
+      ctx.beginPath(); ctx.arc(x, y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${s.tint},${s.a * twinkle})`; ctx.fill();
+    }
+    if (!reducedMotion) frame++;
+    requestAnimationFrame(drawUniverse);
+  }
+  resizeCanvas(); drawUniverse();
+  let resizeTimeout;
+  window.addEventListener("resize", () => { clearTimeout(resizeTimeout); resizeTimeout = setTimeout(resizeCanvas, 150); }, { passive: true });
+  window.addEventListener("pointermove", e => {
+    pointer.x = e.clientX; pointer.y = e.clientY;
+    const aura = $(".cursor-aura");
+    if (aura && !coarsePointer) { aura.style.left = e.clientX + "px"; aura.style.top = e.clientY + "px"; }
+  }, { passive: true });
+
+  // Reveal sections as they enter view.
+  const revealEls = $$(".reveal");
+  if ("IntersectionObserver" in window && !reducedMotion) {
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add("is-visible"); observer.unobserve(entry.target); }
+    }), { threshold: .12, rootMargin: "0px 0px -35px 0px" });
+    revealEls.forEach(el => observer.observe(el));
+  } else revealEls.forEach(el => el.classList.add("is-visible"));
+
+  // Gentle stagger in archive cards.
+  $$(".archive-card").forEach((card, i) => card.style.transitionDelay = `${(i % 3) * 45}ms`);
+
+  // Interactive orbital: drag or touch to rotate the CSS scene.
+  const orb = $("#orbStage");
+  let dragging = false, lastX = 0, lastY = 0, rotX = 0, rotY = 0;
+  orb.addEventListener("pointerdown", e => { dragging = true; lastX = e.clientX; lastY = e.clientY; orb.setPointerCapture?.(e.pointerId); });
+  orb.addEventListener("pointermove", e => {
+    if (!dragging || reducedMotion) return;
+    rotY += (e.clientX - lastX) * .25; rotX -= (e.clientY - lastY) * .12;
+    lastX = e.clientX; lastY = e.clientY;
+    orb.style.transform = `perspective(900px) rotateX(${Math.max(-12, Math.min(12, rotX))}deg) rotateY(${Math.max(-18, Math.min(18, rotY))}deg)`;
+  });
+  const stopDrag = () => { dragging = false; };
+  orb.addEventListener("pointerup", stopDrag); orb.addEventListener("pointercancel", stopDrag); orb.addEventListener("lostpointercapture", stopDrag);
+
+  // File reveals.
+  $$(".reveal-file").forEach(button => button.addEventListener("click", () => {
+    const card = button.closest(".archive-card"), secret = $(".secret-text", card);
+    const opening = secret.hidden;
+    secret.textContent = card.dataset.secret;
+    secret.hidden = !opening;
+    button.innerHTML = opening ? 'CLOSE FILE <span>↙</span>' : 'OPEN FILE <span>↗</span>';
+    if (opening) notify("FILE DECRYPTED // ONE FRAGMENT RECOVERED");
+  }));
+
+  // Glitch sequence.
+  $("#glitchButton").addEventListener("click", () => {
+    document.body.classList.remove("glitching");
+    void document.body.offsetWidth;
+    document.body.classList.add("glitching");
+    $("#statusText").textContent = "SIGNAL LOST";
+    notify("REALITY BUFFERING...");
+    setTimeout(() => { document.body.classList.remove("glitching"); $("#statusText").textContent = "BECOMING"; }, 1200);
+  });
+
+  // Modes shift the ambient color mood, without external audio or autoplay.
+  const modeResponse = $("#modeResponse");
+  $$(".mode-card").forEach(button => button.addEventListener("click", () => {
+    $$(".mode-card").forEach(b => b.classList.remove("active"));
+    button.classList.add("active");
+    const noiseMode = button.dataset.mode === "noise";
+    document.documentElement.style.setProperty("--red", noiseMode ? "#ff3948" : "#a58cff");
+    document.documentElement.style.setProperty("--cyan", noiseMode ? "#69f3f4" : "#9abaff");
+    modeResponse.textContent = noiseMode
+      ? "FREQUENCY LOCKED: DISTORTION // FIND THE SIGNAL INSIDE THE NOISE."
+      : "FREQUENCY LOCKED: ORBIT // ZOOM OUT UNTIL THE PROBLEM CHANGES SHAPE.";
+    notify(noiseMode ? "DISTORTION MODE ENGAGED" : "ORBIT MODE ENGAGED");
+  }));
+
+  // Local terminal: intentionally simulated, no shell or system access.
+  const terminalScreen = $("#terminalScreen");
+  const responses = {
+    why: "Because the unanswered question is often more interesting than the easy answer.",
+    build: "OBSERVATION → MODEL → PROTOTYPE → FAILURE → REVISION. Repeat until it works—or teaches you something better.",
+    void: "No signal is not the same as no information. Sometimes the useful move is to sit with the unknown.",
+    clear: ""
+  };
+  $$(".terminal-controls button").forEach(button => button.addEventListener("click", () => {
+    const command = button.dataset.command;
+    if (command === "clear") {
+      terminalScreen.innerHTML = '<p class="muted">Buffer cleared.</p><p class="terminal-output">Awaiting input...</p>';
+      return;
+    }
+    const p = document.createElement("p");
+    p.innerHTML = `ayank@archive:~$ <span class="cyan"></span>`;
+    $(".cyan", p).textContent = command;
+    const out = document.createElement("p");
+    out.className = "terminal-output";
+    out.textContent = responses[command];
+    terminalScreen.append(p, out);
+    terminalScreen.scrollTop = terminalScreen.scrollHeight;
+  }));
+
+  // Hidden signal.
+  $("#revealMessage").addEventListener("click", () => {
+    const message = $("#classifiedMessage");
+    message.hidden = !message.hidden;
+    $("#revealMessage").textContent = message.hidden ? "REVEAL MESSAGE +" : "SEAL MESSAGE −";
+    if (!message.hidden) notify("SIGNAL DECODED // KEEP BUILDING");
+  });
+
+  // Optional sound: small generated ambient drone only after explicit opt-in.
+  let audioContext = null, masterGain = null, oscillators = [];
+  const soundToggle = $("#soundToggle");
+  function startAmbient() {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) { notify("AMBIENT AUDIO NOT SUPPORTED HERE"); return false; }
+    audioContext = audioContext || new AudioCtx();
+    if (audioContext.state === "suspended") audioContext.resume();
+    masterGain = audioContext.createGain(); masterGain.gain.value = 0.0001; masterGain.connect(audioContext.destination);
+    const frequencies = [55, 82.41, 110.2];
+    oscillators = frequencies.map((freq, i) => {
+      const osc = audioContext.createOscillator(), gain = audioContext.createGain();
+      osc.type = i === 1 ? "triangle" : "sine"; osc.frequency.value = freq;
+      gain.gain.value = i === 0 ? .28 : .11; osc.connect(gain); gain.connect(masterGain); osc.start(); return osc;
+    });
+    masterGain.gain.setTargetAtTime(.035, audioContext.currentTime, .7);
+    return true;
+  }
+  function stopAmbient() {
+    if (audioContext && masterGain) {
+      masterGain.gain.setTargetAtTime(.0001, audioContext.currentTime, .15);
+      setTimeout(() => { oscillators.forEach(o => { try { o.stop(); } catch (_) {} }); oscillators = []; }, 650);
+    }
+  }
+  soundToggle.addEventListener("click", () => {
+    const active = soundToggle.getAttribute("aria-pressed") === "true";
+    if (!active) {
+      if (startAmbient()) {
+        soundToggle.setAttribute("aria-pressed", "true");
+        $(".sound-label", soundToggle).textContent = "SOUND ON";
+        notify("AMBIENT SIGNAL ENABLED");
+      }
+    } else {
+      stopAmbient(); soundToggle.setAttribute("aria-pressed", "false");
+      $(".sound-label", soundToggle).textContent = "SOUND OFF";
+      notify("AMBIENT SIGNAL MUTED");
+    }
+  });
+
+  // Magnetic button effect on precise pointers only.
+  if (window.matchMedia("(hover:hover) and (pointer:fine)").matches && !reducedMotion) {
+    $$(".magnetic").forEach(el => {
+      el.addEventListener("pointermove", e => {
+        const r = el.getBoundingClientRect(), x = e.clientX - r.left - r.width / 2, y = e.clientY - r.top - r.height / 2;
+        el.style.transform = `translate(${x * .08}px,${y * .12}px)`;
+      });
+      el.addEventListener("pointerleave", () => el.style.transform = "");
+    });
+  }
+
+  // Easter egg: type ARCHIVE anywhere outside editable elements.
+  let typed = "";
+  window.addEventListener("keydown", e => {
+    if (e.target.matches("input,textarea,[contenteditable=true]")) return;
+    typed = (typed + e.key.toLowerCase()).slice(-7);
+    if (typed.endsWith("archive")) {
+      document.body.classList.add("glitching");
+      notify("EASTER EGG FOUND // WELCOME BACK");
+      setTimeout(() => document.body.classList.remove("glitching"), 1000);
+      typed = "";
+    }
+  });
+
+  // Keep anchor navigation smooth without trapping scrolling.
+  $$('a[href^="#"]').forEach(link => link.addEventListener("click", e => {
+    const target = $(link.getAttribute("href"));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" }); }
+  }));
+})();
+
+  </script>
+</body>
+</html>
